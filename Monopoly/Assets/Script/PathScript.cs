@@ -10,7 +10,7 @@ public class PathScript : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 1f;
 
-    [HidenInInspector]
+    //[HidenInInspector]
     public int waypointIndex = 0;
 
     public bool moveAllowed = false;
