@@ -18,14 +18,14 @@ public class PathScript : MonoBehaviour
         {
 
             steps = Random.Range(1, 7);
-            Debug.Log("Número de passos: " + steps);
+            Debug.Log("Numero de passos: " + steps);
             if(routePosition + steps < currentRoute.childNodeList.Count)
             {
                 StartCoroutine(Move());
             }
             else
             {
-                Debug.Log("Caminho máximo atingido");
+                Debug.Log("Caminho maximo atingido");
             }
 
         }
