@@ -5,48 +5,57 @@ using UnityEngine;
 public class PathScript : MonoBehaviour
 {
 
-    public Transform[] waypoints;
+    public Route currentRoute; 
 
-    [SerializeField]
-    private float moveSpeed = 1f;
-
-    //[HidenInInspector]
-    public int waypointIndex = 0;
-
+    public int routePosition;
+    public int steps;
     public bool moveAllowed = false;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        transform.position = waypoints[waypointIndex].transform.position;
-    }
-
-    // Update is called once per frame
+    bool isMoving;
+    
     void Update()
     {
-        if (moveAllowed)
-            Move();
-        
-    }
-
-    private void Move()
-    {
-        if(waypointIndex <= waypoints.Length -1 )
+        if(Input.GetKeyDown(KeyCode.Space) && !isMoving)
         {
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                waypoints[waypointIndex].transform.position,
-                moveSpeed * Time.deltaTime
-                ); 
 
-            if(transform.position == waypoints[waypointIndex].transform.position)
+            steps = Random.Range(1, 7);
+            Debug.Log("Número de passos: " + steps);
+            if(routePosition + steps < currentRoute.childNodeList.Count)
             {
-                waypointIndex++;
+                StartCoroutine(Move());
+            }
+            else
+            {
+                Debug.Log("Caminho máximo atingido");
             }
 
         }
+    }
 
+    IEnumerator Move()
+    {
+        if (isMoving)
+        {
+            yield break; 
+        }
+        isMoving = true;
+
+        while(steps>0)
+        {
+            Vector3 nextPos = currentRoute.childNodeList[routePosition + 1].position;
+            while (MoveToNextNode(nextPos)) { yield return null; }
+
+            yield return new WaitForSeconds(0.1f);
+            steps--;
+            routePosition++;
+        }
+
+        isMoving = false; 
+
+        bool MoveToNextNode(Vector3 goal)
+        {
+            return goal != (transform.position = Vector3.MoveTowards(transform.position, goal, 2f * Time.deltaTime));
+            
+        }
     }
 
 
