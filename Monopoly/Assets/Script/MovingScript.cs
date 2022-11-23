@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ballMovingScript : MonoBehaviour
+/*public class ballMovingScript : MonoBehaviour
 {
 
     public Transform target; 
@@ -19,3 +19,4 @@ public class ballMovingScript : MonoBehaviour
         transform.position = target.position;
     }
 }
+*/
