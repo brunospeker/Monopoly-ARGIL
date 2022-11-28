@@ -11,11 +11,18 @@ public class DadoScript : MonoBehaviour
     public static Vector3 dadoUmParado;
     public static Vector3 dadoDoisParado;
 
+    //private GameObject DadoUm;
+    //private GameObject DadoDois;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //DadoUm =  GameObject.Find("DadoUm");
+        //DadoDois =  GameObject.Find("DadoDois");
+        //DadoUm.SetActive(true);
+        //DadoDois.SetActive(true);
     }
 
     // Update is called once per frame
