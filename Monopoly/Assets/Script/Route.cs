@@ -32,11 +32,14 @@ public class Route : MonoBehaviour
 
         childObjects = GetComponentsInChildren<Transform>(); 
 
+        int id = 0;
         foreach(Transform child in childObjects)
         {
-            if(child != this.transform)
+            Node n = child.GetComponent<Node>();
+            if(child != this.transform && n != null)
             {
                 childNodeList.Add(child);
+                n.SetNodeId(id++);
             }
         }
     }
@@ -44,12 +47,7 @@ public class Route : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FillNodes();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
