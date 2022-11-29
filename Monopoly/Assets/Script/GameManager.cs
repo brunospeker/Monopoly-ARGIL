@@ -69,8 +69,6 @@ public class GameManager : MonoBehaviour
         diceNumber = Random.Range(1,7);
         Debug.Log(diceNumber);
 
-        DadoScript.levantarDado();
-
         players[activePlayer].token.MakeTurn(diceNumber);
     }
 }
