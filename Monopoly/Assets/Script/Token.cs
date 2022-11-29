@@ -27,20 +27,6 @@ public class Token : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.Space) && !isMoving)
-    //     {
-    //         stepsToMove = Random.Range(1,7);
-
-    //         if(doneSteps + stepsToMove < route.childNodeList.Count)
-    //         {
-    //             StartCoroutine(Move());
-    //         }
-    //     }
-    // }
-
     IEnumerator Move()
     {
         if(isMoving)
