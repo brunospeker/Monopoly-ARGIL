@@ -7875,7 +7875,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a495a3d2e307a94ebf6d11e8c30a78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
+  DadoScript: {fileID: 0}
+  players:
+  - name: 1
+    token: {fileID: 990922929}
+    playerType: 1
+  - name: 2
+    token: {fileID: 10293335}
+    playerType: 1
+  state: 0
 --- !u!4 &1562142255
 Transform:
   m_ObjectHideFlags: 0
