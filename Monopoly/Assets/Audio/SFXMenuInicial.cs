@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SFXMenuInicial : MonoBehaviour
 {
-    public AudioSource Crash;
+    public AudioSource Click;
 
-    public void PlayCrash(){
-        Crash.Play ();
+    public void PlayClick(){
+        Click.Play ();
+    }
+
+    public void changeVolume(float value){
+        AudioListener.volume = value;
     }
 }
